@@ -1,5 +1,6 @@
 package com.example.quizapplication
 
+import android.app.Application
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -12,7 +13,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.quizapplication.presentation.navigation.Navigation
 import com.example.quizapplication.ui.theme.QuizApplicationTheme
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.HiltAndroidApp
+import dagger.hilt.android.lifecycle.HiltViewModel
 
+@HiltAndroidApp
+class QuizApplication: Application(){
+    override fun onCreate() {
+        super.onCreate()
+    }
+}
+
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
