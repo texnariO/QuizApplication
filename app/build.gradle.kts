@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    kotlin("kapt")
+    kotlin("kapt") version "1.9.0"
     id("com.google.dagger.hilt.android")
 }
 
@@ -52,7 +52,6 @@ android {
 }
 
 dependencies {
-
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
     implementation("androidx.activity:activity-compose:1.8.2")
@@ -72,11 +71,12 @@ dependencies {
     val navVersion = "2.7.6"
     implementation ("androidx.navigation:navigation-compose:$navVersion")
     //Dagger Hilt
-    implementation ("com.google.dagger:hilt-android:2.48")
-    kapt ("com.google.dagger:hilt-compiler:2.45")
+
+    implementation ("com.google.dagger:hilt-android:2.50")
+    kapt ("com.google.dagger:hilt-compiler:2.50")
     implementation ("androidx.hilt:hilt-navigation-compose:1.1.0")
     //Architectural Components
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
 
     //Datastore
     implementation ("androidx.datastore:datastore-preferences:1.0.0")
@@ -88,16 +88,13 @@ dependencies {
     implementation ("io.ktor:ktor-client-json:1.6.4")
 
     //Room
-    implementation("androidx.room:room-runtime:2.5.0")
-    implementation("androidx.room:room-ktx:2.5.0")
-    kapt("androidx.room:room-compiler:2.5.0")
+    implementation("androidx.room:room-runtime:2.6.1")
+    implementation("androidx.room:room-ktx:2.6.1")
+    kapt("androidx.room:room-compiler:2.6.1")
 
     // Kotlin Extensions and Coroutines support for Room
-    implementation ("androidx.room:room-ktx:2.5.0")
+    implementation ("androidx.room:room-ktx:2.6.1")
 
     //gson
-    implementation ("com.google.code.gson:gson:2.9.0")
-}
-kapt {
-    correctErrorTypes = true
+    implementation ("com.google.code.gson:gson:2.10")
 }

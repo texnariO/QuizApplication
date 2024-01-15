@@ -11,7 +11,7 @@
     "correctAnswer": "Мова програмування для розробки Android-додатків."
   },
   {
-"id": "2",
+    "id": "2",
     "question": "Як Kotlin співвідноситься з Java?",
     "answers": [
       "Kotlin - це Java-бібліотека.",
