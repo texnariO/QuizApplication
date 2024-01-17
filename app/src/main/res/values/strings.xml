@@ -3,4 +3,10 @@
     <string name="welcomeMessage">Вітаю Вас в QuizApp</string>
     <string name="startQuiz">Почати Quiz</string>
     <string name="exit_app">Вихід з програми</string>
+    <string name="exit">Ви точно хочете покинути Quiz? Ваш програс буде втраченно</string>
+    <string name="questionNumber">Питання №</string>
+    <string name="confirm_pls">Виберіть один з варіантів</string>
+    <string name="submit">Затвердити</string>
+    <string name="next">Наступне питання</string>
+    <string name="yes">Так</string>
 </resources>

@@ -6,21 +6,23 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.quizapplication.presentation.screens.homescreen.HomeScreen
 import com.example.quizapplication.presentation.screens.quizscreen.QuizScreen
+import com.example.quizapplication.presentation.screens.resultscreen.ResultScreen
 
 @Composable
 fun Navigation() {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = Routes.HomeScreen.route){
-        composable(Routes.HomeScreen.route){
+    NavHost(navController = navController, startDestination = Routes.HomeScreen.route) {
+        composable(Routes.HomeScreen.route) {
             HomeScreen(navController = navController)
         }
-        composable(Routes.QuizScreen.route){
+        composable(Routes.QuizScreen.route) {
             QuizScreen(navController = navController)
         }
-        composable(Routes.ResultScreen.route){
 
+        composable(Routes.ResultScreen.route) {
+            ResultScreen(navController = navController)
         }
-        composable(Routes.SettingScreen.route){
+        composable(Routes.SettingScreen.route) {
 
         }
 

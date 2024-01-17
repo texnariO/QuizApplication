@@ -21,7 +21,13 @@ val TypographyNormal = Typography(
         lineHeight = 24.sp,
         letterSpacing = 0.5.sp
     ),
-
+    bodySmall = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Normal,
+        fontSize = 15.sp,
+        lineHeight = 24.sp,
+        letterSpacing = 0.5.sp
+    ),
     )
 
 val TypographyBold = Typography(
@@ -34,12 +40,18 @@ val TypographyBold = Typography(
     ),
     bodyMedium = TextStyle(
         fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
+        fontWeight = FontWeight.Bold,
         fontSize = 20.sp,
         lineHeight = 24.sp,
         letterSpacing = 0.5.sp
     ),
-
+    bodySmall = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Bold,
+        fontSize = 15.sp,
+        lineHeight = 24.sp,
+        letterSpacing = 0.5.sp
+    ),
     )
 
 val TypographyItalic = Typography(
@@ -51,11 +63,17 @@ val TypographyItalic = Typography(
         letterSpacing = 0.5.sp
     ),
     bodyMedium = TextStyle(
-        fontFamily = FontFamily.Default,
+        fontFamily = FontFamily.Cursive,
         fontWeight = FontWeight.Normal,
         fontSize = 20.sp,
         lineHeight = 24.sp,
         letterSpacing = 0.5.sp
     ),
-
+    bodySmall = TextStyle(
+        fontFamily = FontFamily.Cursive,
+        fontWeight = FontWeight.Normal,
+        fontSize = 15.sp,
+        lineHeight = 24.sp,
+        letterSpacing = 0.5.sp
+    ),
     )
