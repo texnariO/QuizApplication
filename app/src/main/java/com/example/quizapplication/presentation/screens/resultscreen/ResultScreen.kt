@@ -42,10 +42,9 @@ fun ResultScreen(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ){
-        val context = LocalContext.current
         Text(text = stringResource(id = R.string.game_over), style = MaterialTheme.typography.bodyMedium)
         Spacer(modifier = Modifier.height(BigPadding))
-        Text(text = viewModel.poins.value.toString(), style = MaterialTheme.typography.bodyLarge)
+        Text(text = viewModel.points.value.toString(), style = MaterialTheme.typography.bodyLarge)
         Spacer(modifier = Modifier.height(BigPadding))
         Row {
             Column(modifier = Modifier

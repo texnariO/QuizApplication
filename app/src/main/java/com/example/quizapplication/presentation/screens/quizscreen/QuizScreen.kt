@@ -4,9 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.widget.Toast
 import androidx.activity.compose.BackHandler
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -17,7 +15,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -34,7 +31,6 @@ import androidx.compose.material3.RadioButton
 import androidx.compose.material3.RadioButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.currentComposer
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -50,14 +46,13 @@ import com.example.quizapplication.R
 import com.example.quizapplication.domain.model.Question
 import com.example.quizapplication.presentation.screens.quizscreen.stateandevent.QuestionEvent
 import com.example.quizapplication.ui.theme.Dimension.BigPadding
-import com.example.quizapplication.ui.theme.Dimension.MediumPadding
 
 @Composable
 fun QuizScreen(
     navController: NavController,
     viewModel: QuizViewModel = hiltViewModel()
 ) {
-    val currQuestion by viewModel.currQeustionState
+    val currQuestion by viewModel.currQuestionState
     val context = LocalContext.current
     val activity = (LocalContext.current as? Activity)
     BackHandler {
@@ -149,7 +144,6 @@ fun QuizScreen(
                         text = if (currQuestion.isEnabled) {
                             stringResource(R.string.submit)
                         } else {
-                            "Next"
                             stringResource(R.string.next)
                         }
                     )

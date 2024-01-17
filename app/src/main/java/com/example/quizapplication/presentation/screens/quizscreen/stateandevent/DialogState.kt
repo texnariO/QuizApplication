@@ -1,6 +1,5 @@
 package com.example.quizapplication.presentation.screens.quizscreen.stateandevent
 
-import androidx.compose.ui.res.stringResource
 import com.example.quizapplication.R
 
 data class DialogState (

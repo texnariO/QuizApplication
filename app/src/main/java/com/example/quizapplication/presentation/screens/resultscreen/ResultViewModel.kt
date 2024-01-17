@@ -1,7 +1,7 @@
 package com.example.quizapplication.presentation.screens.resultscreen
 
 import androidx.compose.runtime.State
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.quizapplication.domain.repository.ScoreRepository
@@ -15,13 +15,13 @@ import javax.inject.Inject
 class ResultViewModel @Inject constructor(
     private val scoreRepository: ScoreRepository
 ) : ViewModel() {
-    private val _points = mutableStateOf(0)
-    val poins: State<Int> = _points
+    private val _points = mutableIntStateOf(0)
+    val points: State<Int> = _points
 
     init {
         viewModelScope.launch {
             scoreRepository.getPoints.collect {
-                _points.value = it
+                _points.intValue = it
             }
         }
     }

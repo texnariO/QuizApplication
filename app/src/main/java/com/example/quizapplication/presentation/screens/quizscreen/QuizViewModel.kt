@@ -2,11 +2,9 @@ package com.example.quizapplication.presentation.screens.quizscreen
 
 import android.util.Log
 import androidx.compose.runtime.State
-import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.quizapplication.domain.repository.QuestionsRepository
 import com.example.quizapplication.domain.repository.ScoreRepository
 import com.example.quizapplication.presentation.navigation.Routes
@@ -15,8 +13,6 @@ import com.example.quizapplication.presentation.screens.quizscreen.stateandevent
 import com.example.quizapplication.presentation.screens.quizscreen.stateandevent.QuestionListState
 import com.example.quizapplication.presentation.screens.quizscreen.stateandevent.QuestionState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_android_components_ActivityRetainedComponent
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -26,7 +22,7 @@ class QuizViewModel @Inject constructor(
     private val scoreRepository: ScoreRepository
 ) : ViewModel() {
     private val _currQuestionState = mutableStateOf(QuestionState())
-    val currQeustionState: State<QuestionState> = _currQuestionState
+    val currQuestionState: State<QuestionState> = _currQuestionState
 
     private val _questionsList = mutableStateOf(QuestionListState())
     val questionsList: State<QuestionListState> = _questionsList
@@ -37,8 +33,8 @@ class QuizViewModel @Inject constructor(
                 _questionsList.value = questionsList.value.copy(
                     list = it.toMutableList()
                 )
-                Log.d("Quiz", currQeustionState.value.currQuestion!!.question)
-                _currQuestionState.value = currQeustionState.value.copy(
+                Log.d("Quiz", currQuestionState.value.currQuestion!!.question)
+                _currQuestionState.value = currQuestionState.value.copy(
                     questionNo = 1,
                     currQuestion = it[0]
                 )
@@ -58,12 +54,12 @@ class QuizViewModel @Inject constructor(
         when (event) {
             is QuestionEvent.NextQuestion -> {
                 if (_currQuestionState.value.isEnabled) {
-                    _currQuestionState.value = currQeustionState.value.copy(
+                    _currQuestionState.value = currQuestionState.value.copy(
                         isEnabled = false
                     )
                 } else {
                     if(_currQuestionState.value.currQuestion?.correctAnswer == _currQuestionState.value.currAnswer){
-                        _currQuestionState.value = currQeustionState.value.copy(
+                        _currQuestionState.value = currQuestionState.value.copy(
                             isEnabled = true,
                             currAnswer = ""
                         )
@@ -71,7 +67,7 @@ class QuizViewModel @Inject constructor(
                             points = questionsList.value.points+1
                         )
                         if(_currQuestionState.value.questionNo != _questionsList.value.list.size) {
-                            _currQuestionState.value = currQeustionState.value.copy(
+                            _currQuestionState.value = currQuestionState.value.copy(
 
                                 questionNo = _currQuestionState.value.questionNo!! + 1,
                                 currQuestion = _questionsList.value.list[_currQuestionState.value.questionNo!!]
@@ -88,12 +84,12 @@ class QuizViewModel @Inject constructor(
                         }
                     }
                     else{
-                        _currQuestionState.value = currQeustionState.value.copy(
+                        _currQuestionState.value = currQuestionState.value.copy(
                             isEnabled = true,
                             currAnswer = ""
                         )
                         if(_currQuestionState.value.questionNo != _questionsList.value.list.size) {
-                            _currQuestionState.value = currQeustionState.value.copy(
+                            _currQuestionState.value = currQuestionState.value.copy(
                                 questionNo = _currQuestionState.value.questionNo!! + 1,
                                 currQuestion = _questionsList.value.list[_currQuestionState.value.questionNo!!]
                             )
@@ -111,7 +107,7 @@ class QuizViewModel @Inject constructor(
                 }
             }
             is QuestionEvent.ChangeAnswer -> {
-                _currQuestionState.value = currQeustionState.value.copy(
+                _currQuestionState.value = currQuestionState.value.copy(
                     currAnswer = event.ans
                 )
             }
