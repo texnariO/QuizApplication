@@ -3,6 +3,7 @@ package com.example.quizapplication.presentation.screens.quizscreen
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.widget.Toast
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -59,6 +60,9 @@ fun QuizScreen(
     val currQuestion by viewModel.currQeustionState
     val context = LocalContext.current
     val activity = (LocalContext.current as? Activity)
+    BackHandler {
+        viewModel.onEvent(QuestionEvent.OpenDialog)
+    }
     Column(
         modifier = Modifier
             .fillMaxSize()
