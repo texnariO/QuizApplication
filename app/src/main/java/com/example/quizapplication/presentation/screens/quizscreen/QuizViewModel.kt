@@ -53,11 +53,6 @@ class QuizViewModel @Inject constructor(
     fun onEvent(event: QuestionEvent) {
         when (event) {
             is QuestionEvent.NextQuestion -> {
-                if (_currQuestionState.value.isEnabled) {
-                    _currQuestionState.value = currQuestionState.value.copy(
-                        isEnabled = false
-                    )
-                } else {
                     if(_currQuestionState.value.currQuestion?.correctAnswer == _currQuestionState.value.currAnswer){
                         _currQuestionState.value = currQuestionState.value.copy(
                             isEnabled = true,
@@ -104,7 +99,6 @@ class QuizViewModel @Inject constructor(
                             }
                         }
                     }
-                }
             }
             is QuestionEvent.ChangeAnswer -> {
                 _currQuestionState.value = currQuestionState.value.copy(

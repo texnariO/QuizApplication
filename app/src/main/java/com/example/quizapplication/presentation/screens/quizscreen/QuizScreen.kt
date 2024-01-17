@@ -89,8 +89,8 @@ fun QuizScreen(
 
                         },
                         colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.error),
-                        )
-                     {
+                    )
+                    {
                         Text(
                             text = stringResource(id = R.string.yes),
                             color = Color.White
@@ -217,13 +217,18 @@ fun QuestionCard(
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(24.dp, 8.dp),
-                        horizontalArrangement = Arrangement.SpaceBetween,
+                        horizontalArrangement = Arrangement.Start,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Text(text = it, style = MaterialTheme.typography.bodySmall)
+                        Text(
+                            text = it,
+                            Modifier.weight(10f),
+                            style = MaterialTheme.typography.bodySmall
+                        )
                         RadioButton(
                             selected = currAns == it,
                             onClick = null,
+                            Modifier.weight(1f),
                             colors = RadioButtonDefaults.colors(
                                 selectedColor = if (!isEnabled) {
                                     Color.Black

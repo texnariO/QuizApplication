@@ -22,9 +22,5 @@ fun Navigation() {
         composable(Routes.ResultScreen.route) {
             ResultScreen(navController = navController)
         }
-        composable(Routes.SettingScreen.route) {
-
-        }
-
     }
 }
